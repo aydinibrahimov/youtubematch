@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20200725
+      author: aydinibrahimov
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: channel_pkey
+                  name: id
+                  type: bigint
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: category_id
+                  type: int
+                  constraints:
+                    nullable: false
+                    foreignKey: true
+                    foreignKeyName: category_fk
+                    reference: category(id)
+              - column:
+                  name: subscriber_amount
+                  type: bigint
+              - column:
+                  name: video_quantity
+                  type: bigint
+              - column:
+                  name: url
+                  type: VARCHAR(255)
+            tableName: channel

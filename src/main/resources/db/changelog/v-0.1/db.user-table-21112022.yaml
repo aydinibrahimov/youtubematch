@@ -1,0 +1,52 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20200725
+      author: aydinibrahimov
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: user_pkey
+                  name: id
+                  type: bigint
+              - column:
+                  name: first_name
+                  type: VARCHAR(255)
+              - column:
+                  name: last_name
+                  type: VARCHAR(255)
+              - column:
+                  name: job
+                  type: varchar(255)
+              - column:
+                  name: age
+                  type: int
+              - column:
+                  name: sex
+                  type: char(1)
+              - column:
+                  name: country
+                  type: varchar(255)
+              - column:
+                  name: applying_date
+                  type: date
+              - column:
+                  name: channel_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKey: true
+                    foreignKeyName: channel_fk
+                    reference: channel(id)
+              - column:
+                  name: course_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKey: true
+                    foreignKeyName: course_fk
+                    reference: course(id)
+            tableName: user

@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20200725
+      author: aydinibrahimov
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: course_pkey
+                  name: id
+                  type: bigint
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+            tableName: course
